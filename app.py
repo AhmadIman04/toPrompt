@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 import pathlib
 import shutil
 
-
+GA_ID = "google_analytics"
 GA_SCRIPT = """
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-DJ7TKGY65Y"></script>
