@@ -6,6 +6,7 @@ from bs4 import BeautifulSoup
 import pathlib
 import shutil
 
+'''
 GA_ID = "google_analytics"
 GA_SCRIPT = """
 <!-- Google tag (gtag.js) -->
@@ -31,6 +32,25 @@ def inject_ga():
         html = str(soup)
         new_html = html.replace('<head>', '<head>\n' + GA_SCRIPT)
         index_path.write_text(new_html)
+
+inject_ga()
+'''
+
+import streamlit as st
+
+GA_SCRIPT = """
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DJ7TKGY65Y"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-DJ7TKGY65Y');
+</script>
+"""
+
+def inject_ga():
+    st.markdown(GA_SCRIPT, unsafe_allow_html=True)
 
 inject_ga()
 
